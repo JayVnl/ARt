@@ -12,6 +12,8 @@
 		25F6D914278E37CD00F3D2AD /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 25F6D913278E37CD00F3D2AD /* Experience.rcproject */; };
 		25F6D916278E37CE00F3D2AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F6D915278E37CE00F3D2AD /* Assets.xcassets */; };
 		25F6D919278E37CE00F3D2AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F6D918278E37CE00F3D2AD /* Preview Assets.xcassets */; };
+		25F6D921278E3A5000F3D2AD /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = 25F6D920278E3A5000F3D2AD /* FocusEntity */; };
+		25F6D923278E3AD500F3D2AD /* children_yellow.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 25F6D922278E3AD500F3D2AD /* children_yellow.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,7 @@
 		25F6D913278E37CD00F3D2AD /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		25F6D915278E37CE00F3D2AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25F6D918278E37CE00F3D2AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		25F6D922278E3AD500F3D2AD /* children_yellow.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = children_yellow.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F6D921278E3A5000F3D2AD /* FocusEntity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +57,7 @@
 		25F6D90E278E37CD00F3D2AD /* ARt */ = {
 			isa = PBXGroup;
 			children = (
+				25F6D922278E3AD500F3D2AD /* children_yellow.jpeg */,
 				25F6D90F278E37CD00F3D2AD /* AppDelegate.swift */,
 				25F6D911278E37CD00F3D2AD /* ContentView.swift */,
 				25F6D913278E37CD00F3D2AD /* Experience.rcproject */,
@@ -86,6 +91,9 @@
 			dependencies = (
 			);
 			name = ARt;
+			packageProductDependencies = (
+				25F6D920278E3A5000F3D2AD /* FocusEntity */,
+			);
 			productName = ARt;
 			productReference = 25F6D90C278E37CD00F3D2AD /* ARt.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 25F6D903278E37CD00F3D2AD;
+			packageReferences = (
+				25F6D91F278E3A5000F3D2AD /* XCRemoteSwiftPackageReference "FocusEntity" */,
+			);
 			productRefGroup = 25F6D90D278E37CD00F3D2AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25F6D919278E37CE00F3D2AD /* Preview Assets.xcassets in Resources */,
+				25F6D923278E3AD500F3D2AD /* children_yellow.jpeg in Resources */,
 				25F6D916278E37CE00F3D2AD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +361,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25F6D91F278E3A5000F3D2AD /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maxxfrazer/FocusEntity.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25F6D920278E3A5000F3D2AD /* FocusEntity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25F6D91F278E3A5000F3D2AD /* XCRemoteSwiftPackageReference "FocusEntity" */;
+			productName = FocusEntity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 25F6D904278E37CD00F3D2AD /* Project object */;
 }
