@@ -13,4 +13,8 @@ struct Art: Hashable, Codable, Identifiable {
     var title: String
     var author: String
     var imageName: String
+    
+    var size: String?
+    var type: String?
+    var year: String?
 }

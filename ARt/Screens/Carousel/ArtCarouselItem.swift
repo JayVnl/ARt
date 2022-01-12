@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtItem: View {
+struct ArtCarouselItem: View {
     var title: String
     var image: String
     var author: String
@@ -31,6 +31,6 @@ struct ArtItem: View {
 
 struct ArtItem_Previews: PreviewProvider {
     static var previews: some View {
-        ArtItem(title: "Children Yellow", image: "children_yellow", author: "author")
+        ArtCarouselItem(title: "Children Yellow", image: "children_yellow", author: "author")
     }
 }

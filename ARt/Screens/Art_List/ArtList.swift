@@ -1,5 +1,5 @@
 //
-//  ArtCarousel.swift
+//  ArtList.swift
 //  ARt
 //
 //  Created by Danny Vu on 12/01/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ArtCarousel: View {
+struct ArtList: View {
     var categoryName: String
     var items: [Art]
     
@@ -18,19 +18,17 @@ struct ArtCarousel: View {
                 .padding(.leading, 15)
                 .padding(.top,  5)
             
-            ScrollView(.horizontal,  showsIndicators: false) {
-                HStack(alignment: .top, spacing: 0) {
+                VStack {
                     ForEach(items) { art in
-                        ArtItem(title: art.title, image: art.imageName, author: art.author)
+                        ArtListItem(title: art.title, image: art.imageName, author: art.author, size: art.size!, type: art.type!, year: art.year!)
                     }
                 }
-            }
         }
     }
 }
 
-struct ArtCarousel_Previews: PreviewProvider {
+struct ArtList_Previews: PreviewProvider {
     static var previews: some View {
-        ArtCarousel(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "author", imageName: "children_yellow"), count: 5))
+        ArtList(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "author", imageName: "children_yellow", size: "10x12", type: "Schilderij", year: "2001"), count: 5))
     }
 }
