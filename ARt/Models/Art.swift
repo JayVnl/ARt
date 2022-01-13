@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 struct Art: Hashable, Codable, Identifiable {
-    var id: Int
-    var title: String
-    var author: String
-    var imageName: String
-    
-    var size: String?
-    var type: String?
-    var year: String?
+	var id: Int
+	var title: String
+	var author: String
+	var imageName: String
+	
+	var size: String?
+	var type: String?
+	var year: String?
 }

@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ArtCarousel: View {
+	// MARK: PROPERTIES
 	var categoryName: String
 	var items: [Art]
 	
+	// MARK: BODY
 	var body: some View {
 		VStack(alignment: .leading) {
 			Text(categoryName)
@@ -30,6 +32,7 @@ struct ArtCarousel: View {
 	}
 }
 
+// MARK: PREVIEW
 struct ArtCarousel_Previews: PreviewProvider {
 	static var previews: some View {
 		ArtCarousel(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "author", imageName: "children_yellow"), count: 5)).previewLayout(.sizeThatFits)

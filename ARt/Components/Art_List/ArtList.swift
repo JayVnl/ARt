@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ArtList: View {
+	// MARK: PROPERTIES
 	var categoryName: String
 	var items: [Art]
 	
+	// MARK: BODY
 	var body: some View {
 		VStack(alignment: .leading) {
 			Text(categoryName)
@@ -18,8 +20,9 @@ struct ArtList: View {
 				.fontWeight(.medium)
 			
 			VStack(spacing: 20) {
-				ForEach(items) { art in
-					ArtListItem(title: art.title, image: art.imageName, author: art.author, size: art.size!, type: art.type!, year: art.year!)
+				ForEach(0..<items.count) { i in
+					let artwork = self.items[i]
+					ArtListItem(index: i, title: artwork.title, image: artwork.imageName, author: artwork.author, size: artwork.size!, type: artwork.type!, year: artwork.year!)
 				}
 			}
 		}
@@ -27,6 +30,7 @@ struct ArtList: View {
 	}
 }
 
+// MARK: PREVIEW
 struct ArtList_Previews: PreviewProvider {
 	static var previews: some View {
 		ArtList(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "Kunstenaar", imageName: "children_yellow", size: "40 x 30 cm", type: "Schilderij", year: "2001"), count: 5)).previewLayout(.sizeThatFits)

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ArtListItem: View {
+	// MARK: PROPERTIES
+	var index: Int?
 	var title: String
 	var image: String
 	var author: String
@@ -15,6 +17,7 @@ struct ArtListItem: View {
 	var type: String
 	var year: String
 	
+	// MARK: BODY
 	var body: some View {
 		HStack (alignment: .center, spacing: 20){
 			Image(image)
@@ -45,11 +48,11 @@ struct ArtListItem: View {
 			}
 		}
 		.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-		//		.environment(\.layoutDirection, isRegular ? .leftToRight : .rightToLeft)
-		.environment(\.layoutDirection, .leftToRight)
+		.environment(\.layoutDirection, (index ?? 0) % 2 == 0 ? .leftToRight : .rightToLeft)
 	}
 }
 
+// MARK: PREVIEW
 struct ArtListItem_Previews: PreviewProvider {
 	static var previews: some View {
 		ArtListItem(title: "Children Yellow", image: "children_yellow", author: "author",  size: "10x12", type:"Schilderij", year: "2001").previewLayout(.sizeThatFits)
