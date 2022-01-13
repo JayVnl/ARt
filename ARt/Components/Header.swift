@@ -43,7 +43,7 @@ struct Header: View {
 				
 				Text("Bezichtig kunst op voorhand")
 					.foregroundColor(.white)
-					.fontWeight(.medium)
+					.fontWeight(.semibold)
 					.font(Font.system(size: 20))
 					.padding(.leading, 20)
 				

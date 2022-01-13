@@ -8,29 +8,30 @@
 import SwiftUI
 
 struct ArtCarousel: View {
-    var categoryName: String
-    var items: [Art]
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(categoryName)
-                .font(.largeTitle)
-                .padding(.leading, 15)
-                .padding(.top,  5)
-            
-            ScrollView(.horizontal,  showsIndicators: false) {
-                HStack(alignment: .top, spacing: 0) {
-                    ForEach(items) { art in
-                        ArtCarouselItem(title: art.title, image: art.imageName, author: art.author)
-                    }
-                }
-            }
-        }
-    }
+	var categoryName: String
+	var items: [Art]
+	
+	var body: some View {
+		VStack(alignment: .leading) {
+			Text(categoryName)
+				.font(Font.system(size: 32, design: .serif))
+				.fontWeight(.medium)
+				.padding(.leading, 20)
+			
+			ScrollView(.horizontal,  showsIndicators: false) {
+				HStack(alignment: .top, spacing: 20) {
+					ForEach(items) { art in
+						ArtCarouselItem(title: art.title, image: art.imageName, author: art.author)
+					}
+				}
+				.padding(.horizontal, 20)
+			}
+		}
+	}
 }
 
 struct ArtCarousel_Previews: PreviewProvider {
-    static var previews: some View {
-        ArtCarousel(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "author", imageName: "children_yellow"), count: 5))
-    }
+	static var previews: some View {
+		ArtCarousel(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "author", imageName: "children_yellow"), count: 5)).previewLayout(.sizeThatFits)
+	}
 }
