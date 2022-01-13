@@ -19,11 +19,15 @@ struct HomeView: View {
 					VStack(alignment: .leading){
 						Text(artwork.title)
 							.font(.headline)
-						Text(artwork.id)
+						Text(artwork.category)
+							.font(.body)
+						Text(artwork.date)
+							.font(.body)
+						Text(artwork.dimensions.cm.text)
+							.font(.body)
 					}
 				}
 			}
-			Text("ARTWORKS: \(artworks._embedded.artworks[0].id as String)")
 		}
 		else {
 			ProgressView()

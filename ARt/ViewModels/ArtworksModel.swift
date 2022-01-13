@@ -38,7 +38,6 @@ class ArtworksModel: ObservableObject {
 				do {
 					// PARSE THE RESPONSE INTO ARTWORK OBJECTS
 					let artworksResponse = try decoder.decode(ArtworksResponse.self, from: data!)
-					print("Success")
 
 					// UPDATE THE UI FROM THE MAIN THREAD
 					DispatchQueue.main.async {
@@ -47,7 +46,7 @@ class ArtworksModel: ObservableObject {
 					}
 				}
 				catch {
-					print("Failed")
+					print("API call failed")
 				}
 
 			}

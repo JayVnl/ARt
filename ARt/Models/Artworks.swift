@@ -15,7 +15,19 @@ struct ArtworksResponse: Decodable {
 		
 		struct Artwork: Decodable {
 			var id: String
+			var slug: String
 			var title: String
+			var category: String
+			var date: String
+			var dimensions: DimensionType
+			
+			struct DimensionType: Decodable {
+				var cm: Dimension
+				
+				struct Dimension: Decodable {
+					var text: String
+				}
+			}
 		}
 	}
 }
