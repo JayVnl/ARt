@@ -15,12 +15,15 @@ struct ArtCarouselItem: View {
 	
 	// MARK: BODY
 	var body: some View {
+		let width = UIScreen.main.bounds.width * 0.45
+		let height = width * 1.5
+		
 		VStack(alignment: .leading) {
-			Image(image)
-				.resizable()
-				.scaledToFill()
-				.frame(width: 150, height: 250)
-				.cornerRadius(5)
+			AsyncImage(url: URL(string: image)) { image in
+				image.resizable().scaledToFill().frame(width: width, height: height, alignment: .center).clipped()
+			} placeholder: {
+				ProgressView()
+			}
 			Text(title)
 				.font(Font.system(size: 17))
 				.fontWeight(.medium)
@@ -28,6 +31,7 @@ struct ArtCarouselItem: View {
 				.font(Font.system(size: 15))
 				.opacity(0.7)
 		}
+		.frame(width: width)
 	}
 }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct ArtCarousel: View {
 	// MARK: PROPERTIES
 	var categoryName: String
-	var items: [Art]
+	var artworks: [Artwork]
 	
 	// MARK: BODY
 	var body: some View {
@@ -22,8 +22,8 @@ struct ArtCarousel: View {
 			
 			ScrollView(.horizontal,  showsIndicators: false) {
 				HStack(alignment: .top, spacing: 20) {
-					ForEach(items) { art in
-						ArtCarouselItem(title: art.title, image: art.imageName, author: art.author)
+					ForEach(artworks, id: \.id) { artwork in
+						ArtCarouselItem(title: artwork.title, image: artwork._links.thumbnail.href, author: "test")
 					}
 				}
 				.padding(.horizontal, 20)
@@ -35,6 +35,6 @@ struct ArtCarousel: View {
 // MARK: PREVIEW
 struct ArtCarousel_Previews: PreviewProvider {
 	static var previews: some View {
-		ArtCarousel(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "author", imageName: "children_yellow"), count: 5)).previewLayout(.sizeThatFits)
+		ArtCarousel(categoryName: "Test", artworks: [Artwork](repeating: Artwork(id: "1", slug: "iets", title: "Kunstwerk", category: "Schilderij", date: "2022", dimensions: Artwork.DimensionType(cm: Artwork.DimensionType.Dimension(text: "Iets")), _links: Artwork.Link(thumbnail: Artwork.Link.ImageURL(href: "https://picsum.photos/400/600"))), count: 5)).previewLayout(.sizeThatFits)
 	}
 }
