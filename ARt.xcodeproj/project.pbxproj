@@ -93,7 +93,7 @@
 			children = (
 				25F6D924278ECB4100F3D2AD /* Screens */,
 				25F6D93227902F1F00F3D2AD /* Components */,
-				25F6D93127902EF400F3D2AD /* Modelss */,
+				25F6D93127902EF400F3D2AD /* Gordijn */,
 				25F6D922278E3AD500F3D2AD /* children_yellow.jpeg */,
 				25F6D90F278E37CD00F3D2AD /* AppDelegate.swift */,
 				25F6D911278E37CD00F3D2AD /* ContentView.swift */,
@@ -121,12 +121,12 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		25F6D93127902EF400F3D2AD /* Modelss */ = {
+		25F6D93127902EF400F3D2AD /* Gordijn */ = {
 			isa = PBXGroup;
 			children = (
 				1FD8E80B278F080200D1F1C2 /* Art.swift */,
 			);
-			path = Modelss;
+			path = Gordijn;
 			sourceTree = "<group>";
 		};
 		25F6D93227902F1F00F3D2AD /* Components */ = {
