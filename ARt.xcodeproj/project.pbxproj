@@ -52,14 +52,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F87FC00278ED9120023F68F /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				1F87FC03278ED9540023F68F /* HomeView.swift */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
 		1FD8E80D278F135100D1F1C2 /* Art_List */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +91,7 @@
 			children = (
 				25F6D93227902F1F00F3D2AD /* Components */,
 				25F6D93127902EF400F3D2AD /* Models */,
-				1F87FC00278ED9120023F68F /* Screens */,
+				1F87FC03278ED9540023F68F /* HomeView.swift */,
 				25F6D922278E3AD500F3D2AD /* children_yellow.jpeg */,
 				25F6D90F278E37CD00F3D2AD /* AppDelegate.swift */,
 				25F6D911278E37CD00F3D2AD /* ContentView.swift */,
