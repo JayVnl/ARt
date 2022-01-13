@@ -16,15 +16,24 @@ struct HomeView: View {
 			// DISPLAY ARTWORKS
 			List{
 				ForEach(artworks._embedded.artworks, id: \.id) { artwork in
-					VStack(alignment: .leading){
-						Text(artwork.title)
-							.font(.headline)
-						Text(artwork.category)
-							.font(.body)
-						Text(artwork.date)
-							.font(.body)
-						Text(artwork.dimensions.cm.text)
-							.font(.body)
+					HStack {
+						AsyncImage(url: URL(string: artwork._links.thumbnail.href)) { image in
+								image.resizable().scaledToFill()
+						} placeholder: {
+								ProgressView()
+						}
+						.frame(width: 50, height: 50)
+						.padding(.trailing, 10)
+						VStack(alignment: .leading){
+							Text(artwork.title)
+								.font(.headline)
+							Text(artwork.category)
+								.font(.body)
+							Text(artwork.date)
+								.font(.body)
+							Text(artwork.dimensions.cm.text)
+								.font(.body)
+						}
 					}
 				}
 			}

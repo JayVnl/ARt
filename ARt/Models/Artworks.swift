@@ -20,12 +20,21 @@ struct ArtworksResponse: Decodable {
 			var category: String
 			var date: String
 			var dimensions: DimensionType
+			var _links: Link
 			
 			struct DimensionType: Decodable {
 				var cm: Dimension
 				
 				struct Dimension: Decodable {
 					var text: String
+				}
+			}
+			
+			struct Link: Decodable {
+				var thumbnail: ImageURL
+				
+				struct ImageURL: Decodable {
+					var href: String
 				}
 			}
 		}

@@ -17,7 +17,7 @@ class ArtworksModel: ObservableObject {
 		let session = URLSession.shared
 		
 		// API URL TO RETRIEVE ARTWORKS
-		guard let url = URL(string: "https://api.artsy.net/api/artworks") else {
+		guard let url = URL(string: "https://api.artsy.net/api/artworks?size=10&offset=129") else {
 			print("Invalid URL")
 			return
 		}
