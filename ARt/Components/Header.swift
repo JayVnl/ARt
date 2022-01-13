@@ -52,9 +52,8 @@ struct Header: View {
 	}
 }
 
-// MARK: PREVIEW
 struct Header_Previews: PreviewProvider {
-	static var previews: some View {
-		Header().previewLayout(.sizeThatFits)
-	}
+    static var previews: some View {
+			Header().previewLayout(.sizeThatFits)
+    }
 }
