@@ -10,7 +10,7 @@ import SwiftUI
 struct ArtList: View {
 	// MARK: PROPERTIES
 	var categoryName: String
-	var items: [Art]
+	var artworks: [Artwork]
 	
 	// MARK: BODY
 	var body: some View {
@@ -20,9 +20,10 @@ struct ArtList: View {
 				.fontWeight(.medium)
 			
 			VStack(spacing: 20) {
-				ForEach(0..<items.count) { i in
-					let artwork = self.items[i]
-					ArtListItem(index: i, title: artwork.title, image: artwork.imageName, author: artwork.author, size: artwork.size!, type: artwork.type!, year: artwork.year!)
+				ForEach(0..<artworks.count) { i in
+					let artwork = self.artworks[i]
+					
+					ArtListItem(index: i, title: artwork.title, image: artwork._links.thumbnail.href, author: "Test", size: artwork.dimensions.cm.text, type: artwork.category, year: artwork.date)
 				}
 			}
 		}
@@ -33,6 +34,6 @@ struct ArtList: View {
 // MARK: PREVIEW
 struct ArtList_Previews: PreviewProvider {
 	static var previews: some View {
-		ArtList(categoryName: "Test", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "Kunstenaar", imageName: "children_yellow", size: "40 x 30 cm", type: "Schilderij", year: "2001"), count: 5)).previewLayout(.sizeThatFits)
+		ArtList(categoryName: "Test", artworks: [Artwork](repeating: Artwork(id: "1", slug: "iets", title: "Kunstwerk", category: "Schilderij", date: "2022", dimensions: Artwork.DimensionType(cm: Artwork.DimensionType.Dimension(text: "Iets")), _links: Artwork.Link(thumbnail: Artwork.Link.ImageURL(href: "https://picsum.photos/400/600"))), count: 5)).previewLayout(.sizeThatFits)
 	}
 }

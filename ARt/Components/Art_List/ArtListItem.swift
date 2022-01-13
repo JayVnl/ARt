@@ -19,11 +19,14 @@ struct ArtListItem: View {
 	
 	// MARK: BODY
 	var body: some View {
-		HStack (alignment: .center, spacing: 20){
-			Image(image)
-				.resizable()
-				.scaledToFill()
-				.frame(width: 150, height: 150)
+		let width = (UIScreen.main.bounds.width * 0.5) - 30
+		
+		HStack (alignment: .center, spacing: 20) {
+			AsyncImage(url: URL(string: image)) { image in
+				image.resizable().scaledToFill().frame(width: width, height: width, alignment: .center).clipped()
+			} placeholder: {
+				ProgressView()
+			}
 			
 			VStack (alignment: .leading) {
 				Text(title)
@@ -47,7 +50,7 @@ struct ArtListItem: View {
 					.opacity(0.7)
 			}
 		}
-		.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+		.frame(minWidth: 0, maxWidth: .infinity, maxHeight: width, alignment: .leading)
 		.environment(\.layoutDirection, (index ?? 0) % 2 == 0 ? .leftToRight : .rightToLeft)
 	}
 }

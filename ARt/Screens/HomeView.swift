@@ -25,7 +25,12 @@ struct HomeView: View {
 						ProgressView()
 					}
 					
-//					ArtList(categoryName: "Recent toegevoegd", items: [Art](repeating: Art(id: 0, title: "Children Yellow", author: "Kunstenaar", imageName: "children_yellow", size: "10x12", type: "Schilderij", year: "2001"), count: 5))
+					if let artworks = model.artworks {
+						ArtList(categoryName: "Recent toegevoegd", artworks: artworks._embedded.artworks)
+					}
+					else {
+						ProgressView()
+					}
 				}
 			}
 		}.ignoresSafeArea(.all, edges: .top)
