@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  HouseView.swift
 //  ARt
 //
 //  Created by Danny Vu on 12/01/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HouseView: View {
 	// MARK: PROPERTIES
 	
 	// MARK: BODY
@@ -29,8 +29,8 @@ struct HomeView: View {
 }
 
 // MARK: PREVIEW
-struct HomeView_Previews: PreviewProvider {
+struct HouseView_Previews: PreviewProvider {
 	static var previews: some View {
-		HomeView()
+		HouseView()
 	}
 }
