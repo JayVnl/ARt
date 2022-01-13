@@ -99,7 +99,6 @@
 				25F6D92B278EE5F200F3D2AD /* ViewModels */,
 				25F6D924278ECB4100F3D2AD /* Screens */,
 				25F6D93227902F1F00F3D2AD /* Components */,
-				25F6D93127902EF400F3D2AD /* Gordijn */,
 				25F6D922278E3AD500F3D2AD /* children_yellow.jpeg */,
 				25F6D90F278E37CD00F3D2AD /* AppDelegate.swift */,
 				25F6D911278E37CD00F3D2AD /* ContentView.swift */,
@@ -138,17 +137,10 @@
 		25F6D92E278EEEC700F3D2AD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1FD8E80B278F080200D1F1C2 /* Art.swift */,
 				25F6D92F278EEEDC00F3D2AD /* Artworks.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		25F6D93127902EF400F3D2AD /* Gordijn */ = {
-			isa = PBXGroup;
-			children = (
-				1FD8E80B278F080200D1F1C2 /* Art.swift */,
-			);
-			path = Gordijn;
 			sourceTree = "<group>";
 		};
 		25F6D93227902F1F00F3D2AD /* Components */ = {
@@ -243,7 +235,6 @@
 				25F6D930278EEEDC00F3D2AD /* Artworks.swift in Sources */,
 				25F6D926278ECC0500F3D2AD /* HomeView.swift in Sources */,
 				252792F52790763000F4EF18 /* Header.swift in Sources */,
-				25F6D912278E37CD00F3D2AD /* ContentView.swift in Sources */,
 				1FD8E80C278F080200D1F1C2 /* Art.swift in Sources */,
 				1FD8E80A278F07AA00D1F1C2 /* ArtCarousel.swift in Sources */,
 				1FD8E812278F16A800D1F1C2 /* ArtList.swift in Sources */,
