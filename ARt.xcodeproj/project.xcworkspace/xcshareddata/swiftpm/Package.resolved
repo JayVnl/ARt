@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "FancyScrollView",
+        "repositoryURL": "https://github.com/nerdsupremacist/FancyScrollView",
+        "state": {
+          "branch": null,
+          "revision": "7f8194b23dc209cdb5b0ebc9799a8de487166fdf",
+          "version": "0.1.4"
+        }
+      },
+      {
         "package": "FocusEntity",
         "repositoryURL": "https://github.com/maxxfrazer/FocusEntity.git",
         "state": {
