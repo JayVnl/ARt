@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FancyScrollView
 
 struct HomeView: View {
 	// MARK: PROPERTIES
@@ -16,10 +17,11 @@ struct HomeView: View {
 	var body: some View {
 		ZStack {
 			if !showSplashView {
-				ScrollView {
+                FancyScrollView(headerHeight: 252,
+                                scrollUpHeaderBehavior: .sticky,
+                                scrollDownHeaderBehavior: .offset,
+                                header: { Header().aspectRatio(contentMode: .fill) }) {
 					VStack(spacing: 20) {
-						Header()
-						
 						if let artworks = model.artworks {
 							ArtCarousel(categoryName: "Uitgelichte Kunst", artworks: artworks._embedded.artworks)
 						}
@@ -38,7 +40,7 @@ struct HomeView: View {
 			} else {
 				Image(uiImage: UIImage(named: "splashbg")!).resizable().scaledToFit().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
 			}
-		}.ignoresSafeArea(.all).onAppear {
+		}.onAppear {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
 				withAnimation {
 					showSplashView = false
