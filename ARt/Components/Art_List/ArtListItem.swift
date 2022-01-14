@@ -52,6 +52,9 @@ struct ArtListItem: View {
 		}
 		.frame(minWidth: 0, maxWidth: .infinity, maxHeight: width, alignment: .leading)
 		.environment(\.layoutDirection, (index ?? 0) % 2 == 0 ? .leftToRight : .rightToLeft)
+		.onTapGesture {
+			print("Clicked \(title)")
+		}
 	}
 }
 

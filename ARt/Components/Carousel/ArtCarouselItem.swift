@@ -32,6 +32,9 @@ struct ArtCarouselItem: View {
 				.opacity(0.7)
 		}
 		.frame(width: width)
+		.onTapGesture {
+			print("Clicked \(title)")
+		}
 	}
 }
 

@@ -25,8 +25,7 @@ struct ArtCarousel: View {
 					ForEach(artworks, id: \.id) { artwork in
 						ArtCarouselItem(title: artwork.title, image: artwork._links.thumbnail.href, author: "test")
 					}
-				}
-				.padding(.horizontal, 20)
+				}.padding(.horizontal, 20)
 			}
 		}
 	}
