@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class ArtworksModel: ObservableObject {
-	
 	@Published var artworks: ArtworksResponse?
+	@Published var initialLoad: Bool = true
 	
 	init() {
 		// MAKE THE REQUEST TO THE API

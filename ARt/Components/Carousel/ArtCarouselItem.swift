@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIRouter
 
 struct ArtCarouselItem: View {
 	// MARK: PROPERTIES
@@ -23,11 +24,14 @@ struct ArtCarouselItem: View {
 		let author = authorSlug.replacingOccurrences(of: "-", with: " ").capitalized
 		
 		VStack(alignment: .leading) {
-			AsyncImage(url: URL(string: image)) { image in
-				image.resizable().scaledToFill().frame(width: width, height: height, alignment: .center).clipped()
-			} placeholder: {
-				ProgressView()
+			NavLink(to: "/arview") {
+				AsyncImage(url: URL(string: image)) { image in
+					image.resizable().scaledToFill().frame(width: width, height: height, alignment: .center).clipped()
+				} placeholder: {
+					ProgressView()
+				}
 			}
+			
 			Text(title)
 				.font(Font.system(size: 17))
 				.fontWeight(.medium)

@@ -12,7 +12,6 @@
 		1FD8E80C278F080200D1F1C2 /* Art.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8E80B278F080200D1F1C2 /* Art.swift */; };
 		1FD8E810278F13B500D1F1C2 /* ArtListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8E80F278F13B500D1F1C2 /* ArtListItem.swift */; };
 		1FD8E812278F16A800D1F1C2 /* ArtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8E811278F16A800D1F1C2 /* ArtList.swift */; };
-		1FF3EE7227917E7E005C0207 /* FancyScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 1FF3EE7127917E7E005C0207 /* FancyScrollView */; };
 		1FF3EE7E27918575005C0207 /* HeaderScrollViewTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3EE7427918575005C0207 /* HeaderScrollViewTitle.swift */; };
 		1FF3EE7F27918575005C0207 /* View+hideNavigationBarWithoutLosingSwipeBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3EE7527918575005C0207 /* View+hideNavigationBarWithoutLosingSwipeBack.swift */; };
 		1FF3EE8027918575005C0207 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3EE7627918575005C0207 /* BlurView.swift */; };
@@ -23,6 +22,8 @@
 		1FF3EE8527918575005C0207 /* HeaderScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3EE7B27918575005C0207 /* HeaderScrollView.swift */; };
 		1FF3EE8627918575005C0207 /* ScrollUpHeaderBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3EE7C27918575005C0207 /* ScrollUpHeaderBehavior.swift */; };
 		1FF3EE8727918575005C0207 /* ScrollDownHeaderBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3EE7D27918575005C0207 /* ScrollDownHeaderBehavior.swift */; };
+		2506B1BB2791F62900A0D60F /* SwiftUIRouter in Frameworks */ = {isa = PBXBuildFile; productRef = 2506B1BA2791F62900A0D60F /* SwiftUIRouter */; };
+		2506B1BD2791F9B600A0D60F /* RoutingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2506B1BC2791F9B600A0D60F /* RoutingView.swift */; };
 		252792F52790763000F4EF18 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252792F42790763000F4EF18 /* Header.swift */; };
 		25F6D910278E37CD00F3D2AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6D90F278E37CD00F3D2AD /* AppDelegate.swift */; };
 		25F6D912278E37CD00F3D2AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6D911278E37CD00F3D2AD /* ContentView.swift */; };
@@ -54,6 +55,7 @@
 		1FF3EE7C27918575005C0207 /* ScrollUpHeaderBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollUpHeaderBehavior.swift; sourceTree = "<group>"; };
 		1FF3EE7D27918575005C0207 /* ScrollDownHeaderBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollDownHeaderBehavior.swift; sourceTree = "<group>"; };
 		2506B1B52790DA3F00A0D60F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2506B1BC2791F9B600A0D60F /* RoutingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutingView.swift; sourceTree = "<group>"; };
 		252792F42790763000F4EF18 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		25F6D90C278E37CD00F3D2AD /* ARt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F6D90F278E37CD00F3D2AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,8 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FF3EE7227917E7E005C0207 /* FancyScrollView in Frameworks */,
 				25F6D921278E3A5000F3D2AD /* FocusEntity in Frameworks */,
+				2506B1BB2791F62900A0D60F /* SwiftUIRouter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +146,7 @@
 				25F6D922278E3AD500F3D2AD /* children_yellow.jpeg */,
 				25F6D90F278E37CD00F3D2AD /* AppDelegate.swift */,
 				25F6D911278E37CD00F3D2AD /* ContentView.swift */,
+				2506B1BC2791F9B600A0D60F /* RoutingView.swift */,
 				25F6D913278E37CD00F3D2AD /* Experience.rcproject */,
 				25F6D915278E37CE00F3D2AD /* Assets.xcassets */,
 				25F6D917278E37CE00F3D2AD /* Preview Content */,
@@ -213,7 +216,7 @@
 			name = ARt;
 			packageProductDependencies = (
 				25F6D920278E3A5000F3D2AD /* FocusEntity */,
-				1FF3EE7127917E7E005C0207 /* FancyScrollView */,
+				2506B1BA2791F62900A0D60F /* SwiftUIRouter */,
 			);
 			productName = ARt;
 			productReference = 25F6D90C278E37CD00F3D2AD /* ARt.app */;
@@ -245,7 +248,7 @@
 			mainGroup = 25F6D903278E37CD00F3D2AD;
 			packageReferences = (
 				25F6D91F278E3A5000F3D2AD /* XCRemoteSwiftPackageReference "FocusEntity" */,
-				1FF3EE7027917E7E005C0207 /* XCRemoteSwiftPackageReference "FancyScrollView" */,
+				2506B1B92791F62900A0D60F /* XCRemoteSwiftPackageReference "SwiftUIRouter" */,
 			);
 			productRefGroup = 25F6D90D278E37CD00F3D2AD /* Products */;
 			projectDirPath = "";
@@ -289,6 +292,7 @@
 				1FF3EE8527918575005C0207 /* HeaderScrollView.swift in Sources */,
 				1FF3EE8627918575005C0207 /* ScrollUpHeaderBehavior.swift in Sources */,
 				1FD8E812278F16A800D1F1C2 /* ArtList.swift in Sources */,
+				2506B1BD2791F9B600A0D60F /* RoutingView.swift in Sources */,
 				1FF3EE8327918575005C0207 /* FancyScrollView.swift in Sources */,
 				1FF3EE8427918575005C0207 /* View+navigationAllowSpipeBackWhenHidden.swift in Sources */,
 				1FD8E805278F04BC00D1F1C2 /* ArtCarouselItem.swift in Sources */,
@@ -507,12 +511,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1FF3EE7027917E7E005C0207 /* XCRemoteSwiftPackageReference "FancyScrollView" */ = {
+		2506B1B92791F62900A0D60F /* XCRemoteSwiftPackageReference "SwiftUIRouter" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nerdsupremacist/FancyScrollView";
+			repositoryURL = "https://github.com/frzi/SwiftUIRouter.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.4;
+				minimumVersion = 1.0.0;
 			};
 		};
 		25F6D91F278E3A5000F3D2AD /* XCRemoteSwiftPackageReference "FocusEntity" */ = {
@@ -526,10 +530,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1FF3EE7127917E7E005C0207 /* FancyScrollView */ = {
+		2506B1BA2791F62900A0D60F /* SwiftUIRouter */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1FF3EE7027917E7E005C0207 /* XCRemoteSwiftPackageReference "FancyScrollView" */;
-			productName = FancyScrollView;
+			package = 2506B1B92791F62900A0D60F /* XCRemoteSwiftPackageReference "SwiftUIRouter" */;
+			productName = SwiftUIRouter;
 		};
 		25F6D920278E3A5000F3D2AD /* FocusEntity */ = {
 			isa = XCSwiftPackageProductDependency;

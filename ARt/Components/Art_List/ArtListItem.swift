@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftUIRouter
 
 struct ArtListItem: View {
 	// MARK: PROPERTIES
+	@EnvironmentObject var navigator: Navigator
 	var index: Int?
 	var title: String
 	var image: String
@@ -26,10 +28,12 @@ struct ArtListItem: View {
 		let author = authorSlug.replacingOccurrences(of: "-", with: " ").capitalized
 		
 		HStack (alignment: .center, spacing: 20) {
-			AsyncImage(url: URL(string: image)) { image in
-				image.resizable().scaledToFill().frame(width: width, height: width, alignment: .center).clipped()
-			} placeholder: {
-				ProgressView()
+			NavLink(to: "/arview") {
+				AsyncImage(url: URL(string: image)) { image in
+					image.resizable().scaledToFill().frame(width: width, height: width, alignment: .center).clipped()
+				} placeholder: {
+					ProgressView()
+				}
 			}
 			
 			VStack (alignment: .leading) {
