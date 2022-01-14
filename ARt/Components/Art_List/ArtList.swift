@@ -20,7 +20,7 @@ struct ArtList: View {
 				.fontWeight(.medium)
 			
 			VStack(spacing: 20) {
-				ForEach(0..<artworks.count) { i in
+				ForEach(5..<artworks.count) { i in
 					let artwork = self.artworks[i]
 					
 					ArtListItem(index: i, title: artwork.title, image: artwork._links.thumbnail.href, author: artwork.slug, size: artwork.dimensions.cm.text, type: artwork.category, year: artwork.date)

@@ -22,7 +22,9 @@ struct ArtCarousel: View {
 			
 			ScrollView(.horizontal,  showsIndicators: false) {
 				HStack(alignment: .top, spacing: 20) {
-					ForEach(artworks, id: \.id) { artwork in
+					ForEach(0..<5) { i in
+						let artwork = self.artworks[i]
+						
 						ArtCarouselItem(title: artwork.title, image: artwork._links.thumbnail.href, author: artwork.slug)
 					}
 				}.padding(.horizontal, 20)
