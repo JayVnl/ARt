@@ -17,10 +17,10 @@ struct HomeView: View {
 	var body: some View {
 		ZStack {
 			if !showSplashView {
-                FancyScrollView(headerHeight: 252,
-                                scrollUpHeaderBehavior: .sticky,
-                                scrollDownHeaderBehavior: .offset,
-                                header: { Header().aspectRatio(contentMode: .fill) }) {
+				FancyScrollView(headerHeight: 252,
+												scrollUpHeaderBehavior: .sticky,
+												scrollDownHeaderBehavior: .offset,
+												header: { Header().aspectRatio(contentMode: .fill) }) {
 					VStack(spacing: 20) {
 						if let artworks = model.artworks {
 							ArtCarousel(categoryName: "Uitgelichte Kunst", artworks: artworks._embedded.artworks)
@@ -35,10 +35,10 @@ struct HomeView: View {
 						else {
 							ProgressView()
 						}
-					}
+					}.padding(.top, 20)
 				}
 			} else {
-				Image(uiImage: UIImage(named: "splashbg")!).resizable().scaledToFit().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+				Image(uiImage: UIImage(named: "splashbg")!).resizable().scaledToFit().frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height).ignoresSafeArea()
 			}
 		}.onAppear {
 			DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
