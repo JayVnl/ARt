@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftUIRouter
 
 struct ArtListItem: View {
 	// MARK: PROPERTIES
+	@EnvironmentObject private var navigator: Navigator
+	@EnvironmentObject private var model: ArtworksModel
+	
 	var index: Int?
 	var title: String
 	var image: String
@@ -21,18 +25,26 @@ struct ArtListItem: View {
 	var body: some View {
 		let width = (UIScreen.main.bounds.width * 0.5) - 30
 		
+		let titleTrimmed = title.components(separatedBy: CharacterSet.punctuationCharacters).joined(separator: "")
+		let authorSlug = author.dropLast(titleTrimmed.count + 1)
+		let author = authorSlug.replacingOccurrences(of: "-", with: " ").capitalized
+		
 		HStack (alignment: .center, spacing: 20) {
 			AsyncImage(url: URL(string: image)) { image in
 				image.resizable().scaledToFill().frame(width: width, height: width, alignment: .center).clipped()
 			} placeholder: {
 				ProgressView()
 			}
+			.onTapGesture {
+				model.selectedArtworkImage = image
+				navigator.navigate("/arview")
+			}
 			
 			VStack (alignment: .leading) {
 				Text(title)
 					.font(Font.system(size: 17))
 					.fontWeight(.medium)
-				Text(author)
+				Text(author != "" ? author : "Onbekend")
 					.font(Font.system(size: 15))
 					.padding(.bottom, 13)
 					.opacity(0.7)

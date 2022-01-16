@@ -1,14 +1,16 @@
-import ARKit
 import SwiftUI
-import RealityKit
-import FocusEntity
+import SwiftUIRouter
 
 struct ContentView : View {
 	// MARK: PROPERTIES
+	@ObservedObject var model = ArtworksModel()
 	
 	// MARK: BODY
 	var body: some View {
-		HomeView()
+		Router {
+			RoutingView()
+		}
+		.environmentObject(model)
 	}
 }
 

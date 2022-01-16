@@ -2,15 +2,56 @@ import ARKit
 import SwiftUI
 import RealityKit
 import FocusEntity
+import SwiftUIRouter
 
 struct ARtView: View {
+	// MARK: PROPERTIES
+	@EnvironmentObject private var navigator: Navigator
+	@EnvironmentObject var model: ArtworksModel
+	
+	// MARK: BODY
 	var body: some View {
-		return ARViewContainer().edgesIgnoringSafeArea(.all)
+		ZStack {
+			ARViewContainer(imageURL: model.selectedArtworkImage!).edgesIgnoringSafeArea(.all)
+			
+			VStack {
+				HStack {
+					Button(action: { navigator.goBack() }, label: {
+						Image(systemName: "chevron.left")
+							.font(.title2)
+							.foregroundColor(.black)
+							.rotationEffect(.degrees(-45))
+					}) //: BUTTON
+						.frame(
+							width: 24,
+							height: 24
+						)
+						.padding(.all, 8)
+						.background(.white)
+						.rotationEffect(.degrees(45))
+				} //: HSTACK
+				.frame(
+					minWidth: 0,
+					maxWidth: .infinity,
+					alignment: .topLeading
+				)
+				.padding(.horizontal, 30)
+			} //: VSTACK
+			.frame(
+				minWidth: 0,
+				maxWidth: .infinity,
+				minHeight: 0,
+				maxHeight: .infinity,
+				alignment: .topLeading
+			)
+			.padding(.vertical, 20)
+		}
 	}
 }
 
 struct ARViewContainer: UIViewRepresentable {
-	// If I am on a real device execute my code
+	var imageURL: String
+	
 #if !targetEnvironment(simulator)
 	func makeUIView(context: Context) -> ARView {
 		let view = ARView()
@@ -22,6 +63,7 @@ struct ARViewContainer: UIViewRepresentable {
 		session.run(config)
 		
 		context.coordinator.view = view
+		context.coordinator.imageURL = imageURL
 		session.delegate = context.coordinator
 		
 		view.addGestureRecognizer(
@@ -39,8 +81,9 @@ struct ARViewContainer: UIViewRepresentable {
 	func makeCoordinator() -> Coordinator {
 		Coordinator()
 	}
-	
+
 	class Coordinator: NSObject, ARSessionDelegate {
+		var imageURL: String = ""
 		weak var view: ARView?
 		var focusEntity: FocusEntity?
 		
@@ -58,7 +101,16 @@ struct ARViewContainer: UIViewRepresentable {
 			
 			let plane = MeshResource.generatePlane(width: 0.3, height: 0.5)
 			var material = SimpleMaterial()
-			material.color = try! .init(tint: .white, texture: .init(.load(named: "children_yellow.jpeg", in: nil)))
+//			material.color = try! .init(tint: .white, texture: .init(.load(named: "children_yellow.jpeg", in: nil)))
+			guard let url = URL(string: imageURL) else {
+				print("Invalid URL")
+				return
+			}
+			do {
+				material.color = .init(tint: .white, texture: .init(try .load(contentsOf: url)))
+			} catch {
+				material.color = try! .init(tint: .white, texture: .init(.load(named: "children_yellow.jpeg", in: nil)))
+			}
 			let artEntity = ModelEntity(mesh: plane, materials: [material])
 			artEntity.position = focusEntity.position
 			

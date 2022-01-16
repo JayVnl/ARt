@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import SwiftUIRouter
 
 struct ArtCarouselItem: View {
 	// MARK: PROPERTIES
+	@EnvironmentObject private var navigator: Navigator
+	@EnvironmentObject private var model: ArtworksModel
+	
 	var title: String
 	var image: String
 	var author: String
@@ -18,16 +22,25 @@ struct ArtCarouselItem: View {
 		let width = UIScreen.main.bounds.width * 0.45
 		let height = width * 1.5
 		
+		let titleTrimmed = title.components(separatedBy: CharacterSet.punctuationCharacters).joined(separator: "")
+		let authorSlug = author.dropLast(titleTrimmed.count + 1)
+		let author = authorSlug.replacingOccurrences(of: "-", with: " ").capitalized
+		
 		VStack(alignment: .leading) {
-			AsyncImage(url: URL(string: image)) { image in
-				image.resizable().scaledToFill().frame(width: width, height: height, alignment: .center).clipped()
-			} placeholder: {
-				ProgressView()
-			}
+				AsyncImage(url: URL(string: image)) { image in
+					image.resizable().scaledToFill().frame(width: width, height: height, alignment: .center).clipped()
+				} placeholder: {
+					ProgressView()
+				}
+				.onTapGesture {
+					model.selectedArtworkImage = image
+					navigator.navigate("/arview")
+				}
+			
 			Text(title)
 				.font(Font.system(size: 17))
 				.fontWeight(.medium)
-			Text(author)
+			Text(author != "" ? author : "Onbekend")
 				.font(Font.system(size: 15))
 				.opacity(0.7)
 		}
@@ -41,6 +54,6 @@ struct ArtCarouselItem: View {
 // MARK: PREVIEW
 struct ArtItem_Previews: PreviewProvider {
 	static var previews: some View {
-		ArtCarouselItem(title: "Children Yellow", image: "children_yellow", author: "author").previewLayout(.sizeThatFits)
+		ArtCarouselItem(title: "Children Yellow", image: "children_yellow", author: "John Doe").previewLayout(.sizeThatFits)
 	}
 }
