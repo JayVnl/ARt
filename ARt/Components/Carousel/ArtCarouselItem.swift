@@ -10,6 +10,9 @@ import SwiftUIRouter
 
 struct ArtCarouselItem: View {
 	// MARK: PROPERTIES
+	@EnvironmentObject private var navigator: Navigator
+	@EnvironmentObject private var model: ArtworksModel
+	
 	var title: String
 	var image: String
 	var author: String
@@ -24,13 +27,15 @@ struct ArtCarouselItem: View {
 		let author = authorSlug.replacingOccurrences(of: "-", with: " ").capitalized
 		
 		VStack(alignment: .leading) {
-			NavLink(to: "/arview") {
 				AsyncImage(url: URL(string: image)) { image in
 					image.resizable().scaledToFill().frame(width: width, height: height, alignment: .center).clipped()
 				} placeholder: {
 					ProgressView()
 				}
-			}
+				.onTapGesture {
+					model.selectedArtworkImage = image
+					navigator.navigate("/arview")
+				}
 			
 			Text(title)
 				.font(Font.system(size: 17))

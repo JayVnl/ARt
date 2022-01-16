@@ -7,11 +7,12 @@ import SwiftUIRouter
 struct ARtView: View {
 	// MARK: PROPERTIES
 	@EnvironmentObject private var navigator: Navigator
+	@EnvironmentObject var model: ArtworksModel
 	
 	// MARK: BODY
 	var body: some View {
 		ZStack {
-			ARViewContainer().edgesIgnoringSafeArea(.all)
+			ARViewContainer(imageURL: model.selectedArtworkImage!).edgesIgnoringSafeArea(.all)
 			
 			VStack {
 				HStack {
@@ -49,7 +50,8 @@ struct ARtView: View {
 }
 
 struct ARViewContainer: UIViewRepresentable {
-	// If I am on a real device execute my code
+	var imageURL: String
+	
 #if !targetEnvironment(simulator)
 	func makeUIView(context: Context) -> ARView {
 		let view = ARView()
@@ -61,6 +63,7 @@ struct ARViewContainer: UIViewRepresentable {
 		session.run(config)
 		
 		context.coordinator.view = view
+		context.coordinator.imageURL = imageURL
 		session.delegate = context.coordinator
 		
 		view.addGestureRecognizer(
@@ -78,8 +81,9 @@ struct ARViewContainer: UIViewRepresentable {
 	func makeCoordinator() -> Coordinator {
 		Coordinator()
 	}
-	
+
 	class Coordinator: NSObject, ARSessionDelegate {
+		var imageURL: String = ""
 		weak var view: ARView?
 		var focusEntity: FocusEntity?
 		
@@ -97,7 +101,16 @@ struct ARViewContainer: UIViewRepresentable {
 			
 			let plane = MeshResource.generatePlane(width: 0.3, height: 0.5)
 			var material = SimpleMaterial()
-			material.color = try! .init(tint: .white, texture: .init(.load(named: "children_yellow.jpeg", in: nil)))
+//			material.color = try! .init(tint: .white, texture: .init(.load(named: "children_yellow.jpeg", in: nil)))
+			guard let url = URL(string: imageURL) else {
+				print("Invalid URL")
+				return
+			}
+			do {
+				material.color = .init(tint: .white, texture: .init(try .load(contentsOf: url)))
+			} catch {
+				material.color = try! .init(tint: .white, texture: .init(.load(named: "children_yellow.jpeg", in: nil)))
+			}
 			let artEntity = ModelEntity(mesh: plane, materials: [material])
 			artEntity.position = focusEntity.position
 			
